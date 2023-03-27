@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+{% load static %}
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Proyecto Final</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'Worldtech/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'Worldtech/css/cover.css' %}" rel="stylesheet">
+
+    <link href="{% static 'Worldtech/css/flex.css' %}" rel="stylesheet">
+
+  </head>
+  
+  <body class="text-left" >
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <!-- <div class="inner">
+          <h8 class="masthead-brand"><a href="/admin">ADMINISTRADOR</a></h8>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="{% url 'index' %}"><img src="static/Worldtech/assets/img/logotipo.png"></a>
+            <a class="nav-link active" href="{% url 'index' %}">INICIO</a>
+            <a class="nav-link active" href="">Posts</a>
+            <a class="nav-link active" href="">Registrarse</a>
+            <a class="nav-link active" href="">Ingresar</a>
+            <a class="nav-link active" href="">Acerca de Mi</a>
+
+            
+            <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Nuevo Post</a>
+              <a class="dropdown-item" href="#">Mis Posts</a>
+              <a class="dropdown-item" href="#">Todos los Posts</a>
+            </div>
+
+            <a class="nav-link active" href=""></a>
+            
+ 
+
+            <a class="nav-link active">
+                <form action = "" class="d-flex">
+                <input class="form-control me-2" name = "criterio" type="search" style="border-radius: .5em" placeholder="Buscar Post" aria-label="Search">
+                <button class="btn btn-outline-success" style="border-radius: .5em" type="submit">Buscar</a></button>
+                </form>
+            </a>
+                       
+
+          </nav>
+        </div> -->
+
+
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href=""><img src="static/Worldtech/assets/img/logotipo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Posts</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Registrarse</a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Ingresar</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Acerca de Mi</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="{% url 'crear-articulo' %}">Nuevo Post</a>
+                  <a class="dropdown-item" href="#">Mis Posts</a>
+                  <a class="dropdown-item" href="{% url 'lista-articulo' %}">Todos los Posts</a>
+                  </div>
+                </li>
+                </ul>
+                <form action = "{% url 'buscar-articulo' %}" class="d-flex">
+                    <input class="form-control me-2" name = "criterio" type="search" style="border-radius: .5em" placeholder="Buscar Post" aria-label="Search">
+                    <button class="btn btn-outline-success" style="border-radius: .5em" type="submit">Buscar</button>
+                </form>
+            </div>
+          </nav>
+
+
+
+      </header>
+      
+
+ 
+      {% block principal %}
+      <!-- llama en el archivo index.html las lineas de codigo que se encuentran dentro de este bloque -->
+      {% endblock %}
+
+
+      
+      <footer class="mastfoot mt-auto">
+        <br>
+        <div class="inner">
+            
+            <div class="text-right">
+                <a href="#top">Back to top</a>
+            </div>
+
+            <center><p>2023 - Coderhouse - <a href="https://coderhouse.com//online/python">Curso Python</a> - <a href="http://127.0.0.1:8000/admin">Ingresar al Administrador</a></p></center>
+          
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{% static 'Worldtech/js/popper.min.js' %}"></script>
+    <script src="{% static 'Worldtech/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

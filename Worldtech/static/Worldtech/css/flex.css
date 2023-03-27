@@ -1,0 +1,24 @@
+
+  .flexbox-container {
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: flex;
+  }
+  
+  .flexbox-container > div {
+      width: 50%;
+      padding: 10px;
+    background: #fff;
+  }
+/*  
+  .flexbox-container > div:first-child {
+      margin-right: 20px;
+  }
+*/
+
+.flexbox-container > div {
+
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: left;
+}
