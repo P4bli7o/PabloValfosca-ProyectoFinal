@@ -239,7 +239,6 @@ img {
 
 .navbar{
   font-weight: 700;
-  
 }
 
 /* .navbar.nav-link:hover{
@@ -258,3 +257,9 @@ img {
 .nav-link:focus {
   color: rgba(32, 196, 174, 0.836)!important;
 }
+
+/* esto estaba en inspecionar en la navbar
+.text-left {
+  text-align: right!important;
+} */
+

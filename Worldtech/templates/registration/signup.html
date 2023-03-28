@@ -1,0 +1,18 @@
+{% extends "Worldtech/base_navbar.html" %}
+
+{% load static %}
+
+{% block principal %}
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <input type="submit" value="Registrarse">
+    
+</form>
+
+
+{% endblock %}

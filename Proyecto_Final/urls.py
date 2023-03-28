@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Worldtech.views import (index, ArticuloList,  ArticuloDetail, ArticuloUpdate, 
-                             ArticuloDelete, ArticuloCreate, ArticuloSearch)
+                             ArticuloDelete, ArticuloCreate, ArticuloSearch, Login, SignUp, Logout)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,9 @@ urlpatterns = [
     path('crear/articulo/', ArticuloCreate.as_view(), name = "crear-articulo"),
     #path('busqueda/articulo/', ArticuloSearch.as_view(), name = "buscar-articulo"),
     path('buscar/articulo/', ArticuloSearch.as_view(), name = "buscar-articulo"),
+    path('iniciar-sesion/', Login.as_view(), name = "login"),
+    path('registrarse/', SignUp.as_view(), name = "signup"),
+    path('cerrar-sesion/', Logout.as_view(), name = "logout"),
     
 
 ]

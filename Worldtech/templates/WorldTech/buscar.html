@@ -38,11 +38,13 @@
                     <div class="btn-group">
                         
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulo.id %}">Detalle</a>
+                        {% if user.is_authenticated %}
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'actualizar-articulo' articulo.id %}">Actualizar</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'eliminar-articulo' articulo.id %}">Eliminar</a>
                         <!-- <button type="button" class="btn btn-sm btn-outline-secondary" href = "{% url 'detalle-articulo' articulo.id %}">Detalle</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary" href = "{% url 'actualizar-articulo' articulo.id %}">Actualizar</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary" href = "{% url 'eliminar-articulo' articulo.id %}">Eliminar</button> -->
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'eliminar-articulo' articulo.id %}">Eliminar</a>
+                        {% endif %}
                     </div>
                     <small class="text-muted">9 mins</small>
                     </div>

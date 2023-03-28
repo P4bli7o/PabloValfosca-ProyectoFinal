@@ -16,16 +16,18 @@
         <br>
 
         <br>
-
+        
         <form method="post">
             {% csrf_token %}
 
             {{form.as_p}}
             
-            <input type="submit" value="Actualizar">
+            <input type="reset" value = "Borrar campos">
+            <input type="submit" value="Actualizar Publicacion">
 
 
         </form> 
+        
 
     </div>
 </main>
