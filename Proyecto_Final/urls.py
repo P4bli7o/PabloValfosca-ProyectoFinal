@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Worldtech.views import (index, ArticuloList,  ArticuloDetail, ArticuloUpdate, 
-                             ArticuloDelete, ArticuloCreate, ArticuloSearch, Login, SignUp, Logout)
+                             ArticuloDelete, ArticuloCreate, ArticuloSearch, Login, SignUp, Logout, 
+                             ArticulosMiosList)
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = "index"),
-    path('lista/articulos/', ArticuloList.as_view(), name = "lista-articulo"),
+    path('lista/articulos/', ArticuloList.as_view(), name = "lista-articulos"),
     path('detalle/articulo/<pk>/', ArticuloDetail.as_view(), name = "detalle-articulo"),
     path('actualizar/articulo/<pk>/', ArticuloUpdate.as_view(), name = "actualizar-articulo"),
     path('eliminar/articulo/<pk>/', ArticuloDelete.as_view(), name = "eliminar-articulo"),
@@ -31,6 +34,8 @@ urlpatterns = [
     path('iniciar-sesion/', Login.as_view(), name = "login"),
     path('registrarse/', SignUp.as_view(), name = "signup"),
     path('cerrar-sesion/', Logout.as_view(), name = "logout"),
-    
+    path('lista/articulos/mios', ArticulosMiosList.as_view(), name = "mis-articulos"),    
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

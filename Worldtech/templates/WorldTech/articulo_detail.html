@@ -5,33 +5,77 @@
 {% block principal %}
 
 
+
+
+
+
+
+
+
 <main role="main" class="inner cover">
+    
     <div style="margin-top:40px">
-        <br>
+    <br>
         <center><img src="{% static 'Worldtech/assets/img/detalle.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
-
-        <br>
-        <!-- <center><h1 class="cover-heading">Listas de todos los posts creados</h1></center> -->
-
-        <br>
-
-        <br>
-
-        <ul>
-
-
-            <li> {{articulo.id}} - {{articulo.titulo_articulo}} - {{articulo.breve_descripcion}} <br>
-                
-                <a href = "{% url 'actualizar-articulo' articulo.id %}">Actualizar</a>
-                <a href = "{% url 'eliminar-articulo' articulo.id %}">Eliminar</a>
-
-            </li>
         
+            <!-- <div class="col col-2" style="text-align: center;">
+                <h1 class="mt-5">{{ articulo.titulo_articulo }}</h1>
+            </div> -->
+            <div class="d-flex justify-content-center">
+            <div class="col col-8" style="text-align: center;">
 
-        </ul>
-    </div>
+                <h1 class="mt-5">{{ articulo.titulo_articulo }}</h1>
+
+                <p class="small" style="text-align: left;">
+                    Autor: {{ articulo.autor }}<br>
+                    Fecha: {{ articulo.fecha_de_creacion }}
+                </p>
+
+                <p><img height="512px" style="border-radius: 1em;" src="{{ articulo.imagen_principal_url }}"></p>
+
+                <p class="lead" style="text-align: left;">{{ articulo.breve_descripcion }}</p>
+                
+                <br>
+
+                <p class="lead" style="text-align: left;">
+                    {{ articulo.descripcion_articulo_inicio }}
+                </p>
+
+                <p><img width ="512px" style="border-radius: 1em;" src="{{ articulo.imagen_1_de_nota_url }}"></p>
+
+                <br>
+
+                <p class="lead" style="text-align: left;">
+                    {{ articulo.descripcion_articulo_desarrollo }}
+                </p>
+
+                <p><img width ="512px" style="border-radius: 1em;" src="{{ articulo.imagen_2_de_nota_url }}"></p>
+
+                <br>
+
+                <p class="lead" style="text-align: left;">
+                    {{ articulo.descripcion_articulo_conclusion }}
+                </p>
+
+
+                <ul>
+                    {% if user.is_authenticated and user.id == articulo.autor.id %}
+                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'actualizar-articulo' articulo.id %}">Actualizar</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'eliminar-articulo' articulo.id %}">Eliminar</a>
+                    
+                    <!-- <a href = "{% url 'actualizar-articulo' articulo.id %}">Actualizar</a>
+                    <a href = "{% url 'eliminar-articulo' articulo.id %}">Eliminar</a> -->
+                    {% endif %}
+                </ul>
+            </div>
+            </div>
+            <!-- <div class="col col-2" style="text-align: center;">
+                <h1 class="mt-5">{{ articulo.titulo_articulo }}</h1>
+            </div> -->
+        
+    </div> 
+
 
 </main>
-
 
 {% endblock %}

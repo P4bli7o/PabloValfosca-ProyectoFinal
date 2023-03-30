@@ -89,12 +89,12 @@
                   <div class="dropdown-menu" aria-labelledby="dropdown01">
 
 
-                  <a class="dropdown-item" href="{% url 'lista-articulo' %}">Todos los Posts</a>
+                  <a class="dropdown-item" href="{% url 'lista-articulos' %}">Todos los Posts</a>
 
                 {% if user.is_authenticated %}
 
                   <a class="dropdown-item" href="{% url 'crear-articulo' %}">Nuevo Post</a>
-                  <a class="dropdown-item" href="#">Mis Posts</a>
+                  <a class="dropdown-item" href="{% url 'mis-articulos' %}">Mis Posts</a>
                  
                   </div>
                 </li>
@@ -147,7 +147,7 @@
         llama en el archivo footer.html las lineas de codigo que se encuentran dentro de este bloque
       {% endblock %}
       <footer class="mastfoot mt-auto"> -->
-        
+
         <br>
         <footer class="mastfoot mt-auto">
             <br>
