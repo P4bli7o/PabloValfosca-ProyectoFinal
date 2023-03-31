@@ -1,0 +1,55 @@
+{% extends "Worldtech/base_navbar.html" %}
+
+{% load static %}
+
+{% block principal %}
+
+
+<main role="main" class="inner cover">
+    <div style="margin-top:40px">
+        <br>
+        <center><img src="{% static 'Worldtech/assets/img/crear.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
+
+        <br>
+        <!-- <center><h1 class="cover-heading">Listas de todos los posts creados</h1></center> -->
+
+        <br>
+
+        <br>
+        <div class="d-flex justify-content-center">
+            <div class="col col-4" style="text-align: left;">
+
+                <h4> Enviar mensaje </h4>
+                
+                
+                <br>
+                <br>
+                <br>
+                <div style="text-align: right;">
+                <form method="post" enctype = "multipart/form-data">
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+                    
+                    <input type="reset" value = "Borrar campos">
+                    <input type="submit" value="Enviar">
+                    
+
+                </form> 
+                </div>
+            </div>
+
+            <!-- <div class="col col-6" style="text-align: center;">
+            <h4 style="text-align: center"> Vista esquematica de ubicacion de cada campo</h4>
+            <P style="text-align: center">Cada campo a rellenar se puede visualizar en este esquema, la publicacion va a quedar armada de esta manera</P>
+            <img src="{% static 'Worldtech/assets/img/esquematica.png' %}" height="784" width="550">
+            </div> -->
+
+
+
+        </div>
+
+    </div>
+</main>
+
+{% endblock %}

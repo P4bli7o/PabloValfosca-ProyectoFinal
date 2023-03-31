@@ -1,0 +1,74 @@
+{% extends "Worldtech/base_navbar.html" %}
+
+{% load static %}
+
+{% block principal %}
+
+
+<main role="main" class="inner cover">
+    <div style="margin-top:40px">
+        <br>
+        {% if not usuario.perfil %} 
+
+        <center><img src="{% static 'Worldtech/assets/img/crear.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
+
+        {% else %} 
+        
+        <center><img src="{% static 'Worldtech/assets/img/actualizar.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
+        
+        {% endif %} 
+        <br>
+        <!-- <center><h1 class="cover-heading">Listas de todos los posts creados</h1></center> -->
+
+        <br>
+
+        <br>
+        
+        <div class="d-flex justify-content-center">
+            <div class="col col-6" style="text-align: center;">
+
+                {% if not usuario.perfil %} 
+                <h4> Creacion del Perfil</h4>
+            
+                <br>
+                <br>
+
+                <form method="post" enctype = "multipart/form-data">
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+                    
+                    <input type="reset" value = "Borrar campos">
+                    <input type="submit" value="Crear Perfil">
+
+
+                </form> 
+                {% else %}
+
+                <h4> Actualizacion del Perfil</h4>
+            
+                <br>
+                <br>
+
+                <form method="post" enctype = "multipart/form-data">
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+                    
+                    <input type="reset" value = "Borrar campos">
+                    <input type="submit" value="Actualizar Perfil">
+
+
+                </form>
+                {% endif %}
+            </div>
+
+
+            
+        </div>
+        
+
+    </div>
+</main>
+
+{% endblock %}

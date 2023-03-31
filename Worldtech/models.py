@@ -31,3 +31,22 @@ class Articulo(models.Model):
 
     def __str__(self):
         return f"{self.id} - {self.titulo_articulo}"
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(to = User, on_delete = models.CASCADE, related_name = "profile")
+    #perfil_facebook = models.CharField(max_length = 100)
+    #perfil_instagram = models.CharField(max_length = 100)
+    avatar = models.ImageField(upload_to = "avatares", null = True, blank = True)
+
+
+
+
+class Mensaje(models.Model):
+    nombre = models.CharField(max_length = 100)
+    email = models.EmailField()
+    destinatario = models.ForeignKey(to = User, on_delete=models.CASCADE, related_name = "mensajes")
+    asunto = models.CharField(max_length = 100)
+    mensaje = models.TextField(max_length = 2000)
+    creado_el = models.DateTimeField(auto_now_add = True) 
+    

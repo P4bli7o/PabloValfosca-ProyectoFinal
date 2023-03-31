@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Worldtech.views import (index, ArticuloList,  ArticuloDetail, ArticuloUpdate, 
-                             ArticuloDelete, ArticuloCreate, ArticuloSearch, Login, SignUp, Logout, 
-                             ArticulosMiosList)
+                             ArticuloDelete, ArticuloCreate, ArticuloSearch, 
+                             Login, SignUp, Logout, 
+                             ArticulosMiosList, ProfileCreate, ProfileUpdate,
+                             MensajeCreate, MensajeDelete, MensajeList, MensajeDetail)
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -35,7 +38,12 @@ urlpatterns = [
     path('registrarse/', SignUp.as_view(), name = "signup"),
     path('cerrar-sesion/', Logout.as_view(), name = "logout"),
     path('lista/articulos/mios', ArticulosMiosList.as_view(), name = "mis-articulos"),    
-
+    path('crear-perfil/', ProfileCreate.as_view(), name = "crear-perfil"),
+    path('actualizar-perfil/<pk>/', ProfileUpdate.as_view(), name = "actualizar-perfil"),
+    path('lista/mensajes/', MensajeList.as_view(), name="lista-mensajes" ),
+    path('crear/mensaje/', MensajeCreate.as_view(), name="crear-mensaje" ),
+    path('eliminar/mensaje/<pk>/', MensajeDelete.as_view(), name="eliminar-mensaje"),
+    path('detalle/mensaje/<pk>/', MensajeDetail.as_view(), name = "detalle-mensaje"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

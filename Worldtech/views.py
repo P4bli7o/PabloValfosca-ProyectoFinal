@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from Worldtech.models import Articulo
+from Worldtech.models import Articulo, Profile, Mensaje
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+#from Worldtech.forms import UsuarioForm
 
 def index(request):
     return render(request, "Worldtech/index.html")
@@ -95,9 +95,63 @@ class Login(LoginView):
 
 class SignUp(CreateView):
     form_class = UserCreationForm
+    #form_class = UsuarioForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('lista-articulos')
 
 
 class Logout(LogoutView):
     template_name = 'registration/logout.html'
+
+
+
+class ProfileCreate(CreateView):
+    model = Profile
+    success_url = reverse_lazy('index')
+    fields = ['avatar']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Profile
+    success_url = reverse_lazy('index')
+    fields = ['avatar']
+
+    def test_func(self):
+        return Profile.objects.filter(user = self.request.user).exists()
+    
+
+
+
+
+
+
+class MensajeCreate(CreateView):
+    model = Mensaje
+    success_url = reverse_lazy('crear-mensaje')
+    fields = '__all__'
+
+
+class MensajeDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Mensaje
+    context_object_name = "mensaje"
+    success_url = reverse_lazy('lista-mensajes')
+
+    def test_func(self):
+        return Mensaje.objects.filter(destinatario = self.request.user).exists()
+    
+
+class MensajeList(LoginRequiredMixin, ListView):
+    model = Mensaje
+    context_object_name = "mensajes"
+
+    def get_queryset(self):
+        import pdb; pdb.set_trace
+        return Mensaje.objects.filter(destinatario = self.request.user).all()
+
+
+class MensajeDetail(DetailView):
+    model = Mensaje
+    context_object_name = "mensaje"
