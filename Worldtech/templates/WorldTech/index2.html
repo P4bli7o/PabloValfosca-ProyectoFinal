@@ -1,0 +1,96 @@
+{% extends "Worldtech/base_navbar.html" %}
+
+{% load static %}
+
+{% block principal %}
+
+<main role="main" class="inner cover">
+
+    <br>
+    <div style="margin-top:40px"></div>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+                {% if articulos %}
+                    <div class="carousel-item active">
+                        <img src="{{articulos.0.imagen_principal_url}}">
+                        <div class="container">
+                            <div class="carousel-caption text-start">
+                                <h1>{{ articulos.0.titulo_articulo }}</h1>
+                                <p>{{ articulos.0.breve_descripcion }}</p>
+                                <p><a class="btn btn-lg btn-primary" href="{ url 'detalle-articulo' articulos.0.id }" role="button">Ver Detalles</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if articulos.1 %}
+                        <div class="carousel-item active">
+                            <img src="{{articulos.1.imagen_principal_url}}">
+                            <div class="container">
+                                <div class="carousel-caption text-start">
+                                    <h1>{{ articulos.1.titulo_articulo }}</h1>
+                                    <p>{{ articulos.1.breve_descripcion }}</p>
+                                    <p><a class="btn btn-lg btn-primary" href="{ url 'detalle-articulo' articulos.1.id }" role="button">Ver Detalles</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+    
+            <div class="row">
+                {% for articulo in articulos %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" style="height: 225px; width: 225px; display: block;" src="{{articulo.imagen_principal_url}}" data-holder-rendered="true">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" href = "{ url 'detalle-articulo' articulo.id }">Detalle</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Actualizar</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Borrar</button>
+                                </div>
+                                <small class="text-muted">
+                                    Autor: {{ articulo.autor }}<br>
+                                    Fecha: {{ articulo.fecha_de_creacion }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+</main>
+
+
+<!-- <div style="margin-top:40px"></div>
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+        {% if articulos %}
+            <div class="carousel-item active">
+                <img class="first-slide" src="{{articulos.0.imagen_principal_url}}" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>{{ articulos.0.titulo_articulo }}</h1>
+                        <p>{{ articulos.0.breve_descripcion }}</p>
+                        <p><a class="btn btn-lg btn-primary" href="{ url 'detalle-articulo' articulo.id }" role="button">Ver Detalles</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+</div> -->
+
+{% endblock %}

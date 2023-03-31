@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Worldtech.views import (index, ArticuloList,  ArticuloDetail, ArticuloUpdate, 
+from Worldtech.views import (index, about_me, ArticuloList,  ArticuloDetail, ArticuloUpdate, 
                              ArticuloDelete, ArticuloCreate, ArticuloSearch, 
                              Login, SignUp, Logout, 
                              ArticulosMiosList, ProfileCreate, ProfileUpdate,
@@ -27,6 +27,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = "index"),
+    path('sobre-mi/', about_me, name = "sobre-mi"),
     path('lista/articulos/', ArticuloList.as_view(), name = "lista-articulos"),
     path('detalle/articulo/<pk>/', ArticuloDetail.as_view(), name = "detalle-articulo"),
     path('actualizar/articulo/<pk>/', ArticuloUpdate.as_view(), name = "actualizar-articulo"),

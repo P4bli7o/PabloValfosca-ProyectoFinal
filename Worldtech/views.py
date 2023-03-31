@@ -8,7 +8,22 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 #from Worldtech.forms import UsuarioForm
 
 def index(request):
-    return render(request, "Worldtech/index.html")
+    context = {
+        "articulos": Articulo.objects.all().order_by("-fecha_de_creacion")[:6],
+        #"carouseles" : Articulo.objects.all().order_by("-fecha_de_creacion")[:3],
+        "destacados": Articulo.objects.all().order_by("-fecha_de_creacion"),
+    }
+    
+    return render(request, "Worldtech/index.html", context)
+
+
+def about_me(request): 
+    return render(request, "Worldtech/sobre_mi.html")
+
+
+# def index(request):
+#     articulos = Articulo.objects.all().order_by("fecha_de_creacion")[:3]
+#     return render(request, "Worldtech/index.html", {"articulos":articulos})
 
 
 class ArticuloList(ListView):

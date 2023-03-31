@@ -39,6 +39,10 @@ class Profile(models.Model):
     #perfil_instagram = models.CharField(max_length = 100)
     avatar = models.ImageField(upload_to = "avatares", null = True, blank = True)
 
+    @property
+    def avatar_url(self):
+        return self.avatar.url if self.avatar else ''
+
 
 
 

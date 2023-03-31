@@ -5,47 +5,63 @@
 {% block principal %}
 
 <main role="main" class="inner cover">
-
+    <div style="margin-top:40px">
+        <center><img src="{% static 'Worldtech/assets/img/barrita.png' %}" alt="centered image" width="1200" </center>
+      </div>
     <br>
     <div style="margin-top:40px">
+        <div style="text-align: center;" >
+            <h2>PUBLICACIONES DESTACADAS</h2>
+        </div>
+        <br>
+        <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
             </ol>
             <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="first-slide" src="static/Worldtech/assets/img/puente.jpeg" alt="First slide">
-                <div class="container">
-                <div class="carousel-caption text-left">
-                    <h1>Example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                </div>
-                </div>
+                {% if articulos %}
+                    <div class="carousel-item active">
+                        <img class="first-slide" src="{{articulos.0.imagen_principal_url}}" height="450px" style="border-radius: 1.5em;" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption text-right " >
+                                <h1>{{ articulos.0.titulo_articulo }}</h1>
+                                <p>{{ articulos.0.breve_descripcion }}</p>
+                                <p><a class="btn btn-lg btn-primary" href="{% url 'detalle-articulo' articulos.0.id %}" role="button">Ver Detalles</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% if articulos.1 %}
+                        <div class="carousel-item">
+                            <img class="second-slide" src="{{articulos.1.imagen_principal_url}}" height="450px" style="border-radius: 1.5em;" alt="Second slide" >
+                            <div class="container">
+                                <div class="carousel-caption text-right">
+                                    <h1>{{ articulos.1.titulo_articulo }}</h1>
+                                    <p>{{ articulos.1.breve_descripcion }}</p>
+                                    <p><a class="btn btn-lg btn-primary" href="{% url 'detalle-articulo' articulos.1.id %}" role="button">Ver Detalles</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if articulos.2 %}
+                            <div class="carousel-item">
+                                <img class="third-slide" src="{{articulos.2.imagen_principal_url}}" height="450px" style="border-radius: 1.5em;" alt="Third slide">
+                                <div class="container">
+                                    <div class="carousel-caption text-right">
+                                        <h1>{{ articulos.2.titulo_articulo }}</h1>
+                                        <p>{{ articulos.2.breve_descripcion }}</p>
+                                        <p><a class="btn btn-lg btn-primary" href="{% url 'detalle-articulo' articulos.2.id %}" role="button">Ver Detalles</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
             </div>
-            <div class="carousel-item">
-                <img class="second-slide" src="static/Worldtech/assets/img/puente.jpeg" alt="Second slide">
-                <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="third-slide" src="static/Worldtech/assets/img/puente.jpeg" alt="Third slide">
-                <div class="container">
-                <div class="carousel-caption text-right">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-                </div>
-            </div>
-            </div>
+
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -57,70 +73,93 @@
         </div>
 
     </div>
-      <br>
-      <br>
-    <div class="album py-5 bg-light">
-    <div class="container">
 
-        <div class="row">
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22508%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20508%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1871a598da4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1871a598da4%22%3E%3Crect%20width%3D%22508%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22169.75%22%20y%3D%22123.6%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalle</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Actualizar</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Borrar</button>
+    <!-- <div style="margin-top:40px">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            </ol>
+            <div class="carousel-inner">
+            
+            {% for carousel in carouseles %}
+            <div class="carousel-item active">
+                <img class="first-slide" src="{{carousel.imagen_principal_url}}" height="450px" alt="First slide">
+                <div class="container">
+                <div class="carousel-caption text-right " >
+                    <h1>{{ carousel.titulo_articulo }}</h1>
+                    <p>{{ carousel.breve_descripcion }}</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'detalle-articulo' carousel.id %}" role="button">Ver Detalles</a></p>
                 </div>
-                <small class="text-muted">
-                    Autor: {{ articulo.autor }}<br>
-                    Fecha: {{ articulo.fecha_de_creacion }}
-                </small>
                 </div>
             </div>
-            </div>
+            {% endfor %}
+
+            
+
+            
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
         </div>
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22508%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20508%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1871a598da8%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1871a598da8%22%3E%3Crect%20width%3D%22508%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22169.75%22%20y%3D%22123.6%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalle</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Actualizar</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Borrar</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22508%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20508%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1871a598dac%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1871a598dac%22%3E%3Crect%20width%3D%22508%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22169.75%22%20y%3D%22123.6%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalle</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Actualizar</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Borrar</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-                </div>
-            </div>
+
+    </div> -->
+    <br>
+    <br>
+    <br>
+
+    <hr class="featurette-divider">
+   
+    <br>
+
+    <div style="text-align: center;" >
+        <h2>Ultimas Publicaciones creadas</h2>
+    </div>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for articulo in articulos %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="{{articulo.imagen_principal_url}}" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
+                            <div class="card-body">
+                                <p class="card-text">{{ articulo.titulo_articulo }}</p>
+                                    <p>{{ articulo.breve_descripcion }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulos.1.id %}" role="button">Detalle</button></a> -->
+                                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulo.id %}">Detalle</a>
+                                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Actualizar</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Borrar</button> -->
+                                    </div>
+                                    <small class="text-muted">
+                                        Autor: {{ articulo.autor }}<br>
+                                        Fecha: {{ articulo.fecha_de_creacion }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     
 
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <hr class="featurette-divider">
+   
     <br>
-    <br>
-    <br>
+    
     <h1 class="cover-heading">Proyecto Final - Python</h1>
 
     <br>
@@ -131,3 +170,30 @@
 </main>
 
 {% endblock %}
+
+<!-- card en inicio para mostrar los post chiquitos
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% if articulos.1 %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{articulos.1.imagen_principal_url}}" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
+                        <div class="card-body">
+                            <p class="card-text">{{ articulos.1.titulo_articulo }}</p>
+                                <p>{{ articulos.1.breve_descripcion }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulos.1.id %}">Detalle</a>
+                                </div>
+                                <small class="text-muted">
+                                    Autor: {{ articulos.1.autor }}<br>
+                                    Fecha: {{ articulos.1.fecha_de_creacion }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div> -->

@@ -1,0 +1,136 @@
+{% extends "Worldtech/base_navbar.html" %}
+
+{% load static %}
+
+{% block principal %}
+
+
+<div style="margin-top:40px">
+    <!-- <h3>Sobre Mi</h3> -->
+    <center><img src="{% static 'Worldtech/assets/img/barrita.png' %}" alt="centered image" width="1200" </center>
+
+</div>
+<br>
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+    <div class="col col-4" style="text-align: center;">
+
+        <img width ="200px" style="border-radius: 1em;" src="{% static 'Worldtech/assets/img/yo.jpg' %}" alt="centered image" >
+
+    </div>
+
+    <div class="col col-4" style="text-align: left;">
+
+        <h3 class="mt-5">Un poquito de mi...</h3>
+            <p class="lead" style="text-align: left;">
+         Hola, mi nombre es Pablo, soy de la ciudad de Rosario - Santa Fe, 
+         desde chico estuve intersado por la tecnologia y computacion por eso 
+         elegi hacer una pagina tipo blog sobre todo lo referido al mundo de la tecnologia, 
+         en particular sobre computacion.
+
+            </p>
+    </div>
+    <!-- <p class="lead" style="text-align: left;">
+        Hola, Mi nombre es Pablo, soy de la ciudad de Rosario - Santa Fe, desde chico estuve intersado por la tecnologia y computacion por eso elegi hacer un pagina de blog sobre todo lo referido al mundo de la tecnologia, en particular sobre computacion.
+
+    </p> -->
+</div>
+
+
+<!-- <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <div style="text-align: left">
+        <img width ="200px" style="border-radius: 1em;" src="{% static 'Worldtech/assets/img/yo.jpg' %}" alt="centered image" >
+    </div> 
+</div> -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container marketing">
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <br>
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Modelado y animacion 3D. <span class="text-muted">Del poligono a la creacion tridimensional.</span></h2>
+        <br>
+        <p class="lead">
+            Cuando termine la secundaria, empece a estudiar una carrera en diseño 3d, 
+            que permite realizar tanto animacion 3d y modelado poligonal, y abarca muchos 
+            conocimientos mas sobre edicion de video, sonido, efectos especiales, diseño 
+            grafico y demas cuestiones relacionadas a la comunicacion visual.
+            Estoy trabajando de esto y ahora me empezo a interesar tambien aprender a 
+            programar por eso empece este curso y tengo ganas de seguir aprendiendo 
+            todo lo que pueda.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" style="border-radius: 1em; width: 500px;" src="{% static 'Worldtech/assets/img/modelado-personaje.avif' %}" data-src="holder.js/500x500/auto" alt="500x500" data-holder-rendered="true">
+      </div>
+    </div>
+
+    <br>
+
+    <hr class="featurette-divider">
+   
+    <br>
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Siempre estando en movimiento. <span class="text-muted">Hacer ejercicio mejora tu salud.</span></h2>
+        <br>
+        <p class="lead">
+            Tambien me apasiona el mundo fitness y por eso estudie distintos 
+            instrutorados y certificaciones referido a entreranimento,
+            soy Instructor de Musculacion, Personal Trainer, Preparador Fisico Deportivo,
+            Instructor de Entrenamiento Funcional y tengo realizadas muchas certificaciones,
+            de Fuerza, Nutricion Deportiva, Aceleracion Metabolica, Descenso de peso y 
+            unas cuantas mas...
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="featurette-image img-fluid mx-auto" style="border-radius: 1em; width: 500px;" src="{% static 'Worldtech/assets/img/gym.jpg' %}" data-src="holder.js/500x500/auto" alt="500x500" data-holder-rendered="true">
+      </div>
+    </div>
+
+    <br>
+
+    <hr class="featurette-divider">
+
+    <br>
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Impresion 3D. <span class="text-muted">Libera tu imaginacion.</span></h2>
+        <br>
+        <p class="lead">
+            Me dedico tambien a realizar mediante una impresora 3d todo tipos de elementos 
+            ya sea desde personajes, piezas mecanicas, maquetas de presentacion para arquitectura, 
+            moldes para hacer implantes dentales, etc.
+            Es un campo muy amplio lo que se puede realizar con estas maquinas, solo te limita 
+            tu imaginacion para verlo hecho una realidad porque estamos en una era en donde 
+            con estos dispositivo practicamente se puede crear o recrear con ellas casi todo.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" style="border-radius: 1em; width: 500px;" src="{% static 'Worldtech/assets/img/impresion-3d-miniaturas.jpg' %}" data-src="holder.js/500x500/auto" alt="500x500"  data-holder-rendered="true">
+      </div>
+    </div>
+    <br>
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div>
+
+
+{% endblock %}

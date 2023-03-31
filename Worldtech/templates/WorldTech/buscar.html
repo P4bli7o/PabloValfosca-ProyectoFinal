@@ -18,9 +18,11 @@
 
         <br>
 
+        <hr class="featurette-divider">
+       
+        <br>
 
-
-        
+            {% if articulos %}
             {% for articulo in articulos %}
             <div class="d-flex justify-content-center">
             <div class="col-md-8" >
@@ -64,6 +66,19 @@
             </div>
             </div>
             {% endfor %}
+
+            {% else %}
+
+            <div class="inner cover-container">
+                <div class="flexbox-container">
+                    <div style="border-radius: 1em; background-color: rgb(87, 89, 97); text-align: center; padding-left: 5em; padding-right: 5em; padding-top: 1.5em; padding-bottom: 2.5em;">
+                        <br>
+                        <h4>No se ha encontrado ninguna coincidencia</h4>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
         
 
     </div>
