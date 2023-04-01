@@ -3,7 +3,7 @@
 ### Entrega Final Curso Python - Coderhouse - Marzo 2023
       - Profesor: German Martinez
       - Comision 48405
-      - Video de explicacion: 
+      - Video de explicacion: https://drive.google.com/file/d/12LVIcdb5y_BGlbyu1gI6DGkaDXNQKltG/view?usp=sharing
 
 ## Contenido de la pagina web
 
@@ -187,7 +187,7 @@ hay coincidencias muestra una leyenda
         los ptos de commit que tiene y las modificacioens que se hicieron, pararse en la rama a la que se 
         le quiere fusionar la otra 
 
-        - git reset –hard (codigo alfanunerico commit)  <---  elimina los commit que estan arriba de ese 
+        - git reset –-hard (codigo alfanunerico commit)  <---  elimina los commit que estan arriba de ese 
         pto de recuperacion no hay vuelta atras si se usa este comando
 
         - git add .   <---  hace que toda modificacion creacion o borrado o archivo que no esta siendo 
