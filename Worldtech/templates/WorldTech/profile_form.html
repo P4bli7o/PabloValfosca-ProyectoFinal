@@ -8,13 +8,14 @@
 <main role="main" class="inner cover">
     <div style="margin-top:40px">
         <br>
+
         {% if not user.profile %} 
 
-        <center><img src="{% static 'Worldtech/assets/img/crear.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
+        <center><img src="{% static 'Worldtech/assets/img/crear-perfil.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
 
         {% else %} 
         
-        <center><img src="{% static 'Worldtech/assets/img/actualizar.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
+        <center><img src="{% static 'Worldtech/assets/img/actualizar-perfil.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
         
         {% endif %} 
         <br>
@@ -22,6 +23,10 @@
 
         <br>
 
+        <br>
+
+        <hr class="featurette-divider">
+       
         <br>
         
         <div class="d-flex justify-content-center">

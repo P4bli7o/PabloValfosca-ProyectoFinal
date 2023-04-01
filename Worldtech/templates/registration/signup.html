@@ -4,15 +4,38 @@
 
 {% block principal %}
 
-<form method="POST">
+<main role="main" class="inner cover">
+    <div style="margin-top:40px">
+        <br>
+        <center><img src="{% static 'Worldtech/assets/img/registrarse.jpg' %}" alt="centered image" height="540" width="1200" style="border-radius: 2em;"> </center>
 
-    {% csrf_token %}
+        <br>
+        <!-- <center><h1 class="cover-heading">Listas de todos los posts creados</h1></center> -->
 
-    {{form.as_p}}
+        <br>
 
-    <input type="submit" value="Registrarse">
-    
-</form>
+        <hr class="featurette-divider">
+       
+        <br>
 
+        <br>
+
+        <div class="d-flex justify-content-center">
+            <div class="col col-4" style="text-align: right;">
+        
+                <form method="POST">
+        
+                    {% csrf_token %}
+        
+                    {{form.as_p}}
+                    
+                    <input type="reset" value="Borrar campos">
+                    <input type="submit" value="Registrarse">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
 
 {% endblock %}

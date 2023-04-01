@@ -120,7 +120,7 @@ class Logout(LogoutView):
 
 
 
-class ProfileCreate(CreateView):
+class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
     success_url = reverse_lazy('index')
     fields = ['avatar']
