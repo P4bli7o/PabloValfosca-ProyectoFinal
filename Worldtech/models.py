@@ -42,6 +42,9 @@ class Profile(models.Model):
     @property
     def avatar_url(self):
         return self.avatar.url if self.avatar else ''
+    
+    def __str__(self):
+        return f"{self.user}"
 
 
 
@@ -53,4 +56,7 @@ class Mensaje(models.Model):
     asunto = models.CharField(max_length = 100)
     mensaje = models.TextField(max_length = 2000)
     creado_el = models.DateTimeField(auto_now_add = True) 
+
+    def __str__(self):
+        return f"Nombre: {self.nombre} - Email: {self.email} - Asunto: {self.asunto}" 
     
