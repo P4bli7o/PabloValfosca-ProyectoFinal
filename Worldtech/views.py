@@ -10,8 +10,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def index(request):
     context = {
         "articulos": Articulo.objects.all().order_by("-fecha_de_creacion")[:6],
-        #"carouseles" : Articulo.objects.all().order_by("-fecha_de_creacion")[:3],
-        "destacados": Articulo.objects.all().order_by("-fecha_de_creacion"),
     }
     
     return render(request, "Worldtech/index.html", context)
@@ -20,10 +18,6 @@ def index(request):
 def about_me(request): 
     return render(request, "Worldtech/sobre_mi.html")
 
-
-# def index(request):
-#     articulos = Articulo.objects.all().order_by("fecha_de_creacion")[:3]
-#     return render(request, "Worldtech/index.html", {"articulos":articulos})
 
 
 class ArticuloList(ListView):
@@ -43,12 +37,6 @@ class ArticuloDetail(DetailView):
     context_object_name = "articulo"
 
 
-# class AutorPermisos(UserPassesTestMixin):
-#     def test_func(self):
-#         id_usuario = self.request.user.id
-#         id_articulo = self.kwargs.get("pk")
-#         return Articulo.objects.filter(autor = id_usuario, id = id_articulo).exists()
-    
 
 class ArticuloUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Articulo
@@ -119,7 +107,6 @@ class Logout(LogoutView):
     template_name = 'registration/logout.html'
 
 
-
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
     success_url = reverse_lazy('index')
@@ -128,6 +115,7 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Profile

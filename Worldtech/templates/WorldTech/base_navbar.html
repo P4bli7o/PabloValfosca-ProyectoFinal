@@ -26,43 +26,9 @@
 
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
-        <!-- <div class="inner">
-          <h8 class="masthead-brand"><a href="/admin">ADMINISTRADOR</a></h8>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" href="{% url 'index' %}"><img src="static/Worldtech/assets/img/logotipo.png"></a>
-            <a class="nav-link active" href="{% url 'index' %}">INICIO</a>
-            <a class="nav-link active" href="">Posts</a>
-            <a class="nav-link active" href="">Registrarse</a>
-            <a class="nav-link active" href="">Ingresar</a>
-            <a class="nav-link active" href="">Acerca de Mi</a>
 
-            
-            <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Nuevo Post</a>
-              <a class="dropdown-item" href="#">Mis Posts</a>
-              <a class="dropdown-item" href="#">Todos los Posts</a>
-            </div>
-
-            <a class="nav-link active" href=""></a>
-            
- 
-
-            <a class="nav-link active">
-                <form action = "" class="d-flex">
-                <input class="form-control me-2" name = "criterio" type="search" style="border-radius: .5em" placeholder="Buscar Post" aria-label="Search">
-                <button class="btn btn-outline-success" style="border-radius: .5em" type="submit">Buscar</a></button>
-                </form>
-            </a>
-                       
-
-          </nav>
-        </div> -->
-
-
-        
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <!-- <a class="navbar-brand" href=""><img src="static/Worldtech/assets/img/logotipo.png">ggg</a> -->
+          
           <a class="navbar-brand" href="http://127.0.0.1:8000/admin"><img src="{% static 'Worldtech/assets/img/logotipo.png' %}"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -70,33 +36,13 @@
     
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-              <!-- <li class="nav-item active">
-                  <a class="nav-link" href="#">Posts</a>
-              </li> -->
+
               
               <li class="nav-item active">
                   <a class="nav-link" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
               </li>
 
-              
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENSAJES</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
 
-
-                  {% if user.is_authenticated %}
-
-                    <a class="dropdown-item" href="{% url 'lista-mensajes' %}">Mis Mensajes</a>
-
-                  {% endif %}
-
-                  <a class="dropdown-item" href="{% url 'crear-mensaje' %}">Enviar Mensaje</a>
-
-                </div>
-
-              </li> -->
-              
- 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BLOG</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -144,11 +90,6 @@
                 </li>
 
 
-
-
-                <!-- <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} | SALIR</a>
-                </li> -->
                 <li class="nav-item active">
                   {% if user.profile.avatar_url %}
                   <img src="{{ user.profile.avatar_url }}" height="100%" width="40px" style="border-radius: 50%;">
@@ -195,15 +136,6 @@
               {% endif %}
 
 
-
-
-              <!-- <li class="nav-item active">
-                <a class="nav-link" href="http://127.0.0.1:8000/admin">ADMINISTRADOR</a>
-              </li> -->
-
-
-
-
             </ul>
 
             <form action = "{% url 'buscar-articulo' %}" class="d-flex">
@@ -214,7 +146,7 @@
           </div>
 
         </nav>
-        
+
         <div style="padding-top: 40px;">
           <center><img src="{% static 'Worldtech/assets/img/barrita.png' %}" alt="centered image" width="1200" </center>
         </div>
@@ -222,21 +154,13 @@
 
       </header>
       
-      
-      <!-- <div style="padding-top: 1px;">
-        <center><img src="{% static 'Worldtech/assets/img/barrita.png' %}" alt="centered image" width="1200" </center>
-      </div> -->
+
       
 
       {% block principal %}
       <!-- llama en el archivo index.html las lineas de codigo que se encuentran dentro de este bloque -->
       {% endblock %}
 
-
-      <!-- {% block footer %}
-        llama en el archivo footer.html las lineas de codigo que se encuentran dentro de este bloque
-      {% endblock %}
-      <footer class="mastfoot mt-auto"> -->
 
         <br>
         <footer class="mastfoot mt-auto">

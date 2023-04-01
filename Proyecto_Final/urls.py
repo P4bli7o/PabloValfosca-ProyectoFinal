@@ -33,7 +33,6 @@ urlpatterns = [
     path('actualizar/articulo/<pk>/', ArticuloUpdate.as_view(), name = "actualizar-articulo"),
     path('eliminar/articulo/<pk>/', ArticuloDelete.as_view(), name = "eliminar-articulo"),
     path('crear/articulo/', ArticuloCreate.as_view(), name = "crear-articulo"),
-    #path('busqueda/articulo/', ArticuloSearch.as_view(), name = "buscar-articulo"),
     path('buscar/articulo/', ArticuloSearch.as_view(), name = "buscar-articulo"),
     path('iniciar-sesion/', Login.as_view(), name = "login"),
     path('registrarse/', SignUp.as_view(), name = "signup"),

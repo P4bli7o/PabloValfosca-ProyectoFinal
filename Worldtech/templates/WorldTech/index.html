@@ -5,10 +5,7 @@
 {% block principal %}
 
 <main role="main" class="inner cover">
-    <!-- <div style="margin-top:40px">
-        <center><img src="{% static 'Worldtech/assets/img/barrita.png' %}" alt="centered image" width="1200" </center>
-      </div>
-    <br> -->
+
     <div style="margin-top:40px">
         <div style="text-align: center;" >
             <h2>PUBLICACIONES DESTACADAS</h2>
@@ -74,41 +71,6 @@
 
     </div>
 
-    <!-- <div style="margin-top:40px">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-            </ol>
-            <div class="carousel-inner">
-            
-            {% for carousel in carouseles %}
-            <div class="carousel-item active">
-                <img class="first-slide" src="{{carousel.imagen_principal_url}}" height="450px" alt="First slide">
-                <div class="container">
-                <div class="carousel-caption text-right " >
-                    <h1>{{ carousel.titulo_articulo }}</h1>
-                    <p>{{ carousel.breve_descripcion }}</p>
-                    <p><a class="btn btn-lg btn-primary" href="{% url 'detalle-articulo' carousel.id %}" role="button">Ver Detalles</a></p>
-                </div>
-                </div>
-            </div>
-            {% endfor %}
-
-            
-
-            
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-    </div> -->
     <br>
     <br>
     <br>
@@ -133,10 +95,7 @@
                                     <p>{{ articulo.breve_descripcion }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulos.1.id %}" role="button">Detalle</button></a> -->
                                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulo.id %}">Detalle</a>
-                                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Actualizar</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Borrar</button> -->
                                     </div>
                                     <small class="text-muted">
                                         Autor: {{ articulo.autor }}<br>
@@ -170,30 +129,3 @@
 </main>
 
 {% endblock %}
-
-<!-- card en inicio para mostrar los post chiquitos
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            {% if articulos.1 %}
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="{{articulos.1.imagen_principal_url}}" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
-                        <div class="card-body">
-                            <p class="card-text">{{ articulos.1.titulo_articulo }}</p>
-                                <p>{{ articulos.1.breve_descripcion }}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'detalle-articulo' articulos.1.id %}">Detalle</a>
-                                </div>
-                                <small class="text-muted">
-                                    Autor: {{ articulos.1.autor }}<br>
-                                    Fecha: {{ articulos.1.fecha_de_creacion }}
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-        </div>
-    </div> -->
